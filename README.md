@@ -23,14 +23,14 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 
   ### Home, Signup and Login Pages
   
-  <img src="https://github.com/user-attachments/assets/7de17db3-2bdf-4794-8c34-95233364ac64" alt="image" height = "350" width="500" style="float: left; margin-right: 10px;" />
-  <img src="https://github.com/user-attachments/assets/9dfcab72-1d58-417b-a748-6d392692c57c" alt="image" height = "350" width="450" style="float: left; margin-right: 10px;" />
-  <img src="https://github.com/user-attachments/assets/b4c95387-21a6-43cc-b84c-dffa373ec7ee" alt="image" height = "350" width="450" style="float: left; margin-right: 10px;" />
+  <img src="https://github.com/user-attachments/assets/7de17db3-2bdf-4794-8c34-95233364ac64" alt="image" height = "350" width="500" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/9dfcab72-1d58-417b-a748-6d392692c57c" alt="image" height = "350" width="450" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/b4c95387-21a6-43cc-b84c-dffa373ec7ee" alt="image" height = "350" width="450" style="float: left; margin-right: 20px;" />
 
   ### User and Team Pages
 
-  <img src="https://github.com/user-attachments/assets/902f9252-97f5-4b33-a244-2559d755cbc0" alt="image" height = "500" width="350" style="float: left; margin-right: 10px;" />
-  <img src="https://github.com/user-attachments/assets/4a60c9bf-e7a9-4492-9c07-8d7c223ff54f" alt="image" height = "350" width="500" style="float: left; margin-right: 10px;" />
+  <img src="https://github.com/user-attachments/assets/902f9252-97f5-4b33-a244-2559d755cbc0" alt="image" height = "450" width="350" style="float: left; margin-right: 10px;" />
+  <img src="https://github.com/user-attachments/assets/4a60c9bf-e7a9-4492-9c07-8d7c223ff54f" alt="image" height = "300" width="500" style="float: left; margin-right: 10px;" />
 
    ### All Specialist and Individual Specialist
 
