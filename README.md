@@ -1,13 +1,11 @@
 # Project 3 - Licensing Portal for FI Sales Team
 
 ## Introduction
-
-The Licensing Portal for the FI Sales Team is a full-stack MERN application (MongoDB, Express, React, and Node) that allows the Licensing Team of a Financial Institution to manage the licensing of the sales team, ensuring they are authorized to sell life insurance and takaful products to clients. This project was created in the span of just over a week.
+The Licensing Portal for the FI Sales Team is a full-stack MERN application (MongoDB, Express, React, and Node) that allows the Licensing Team of a Financial Institution to manage the licensing of the sales team, ensuring they are authorized to sell life insurance and takaful products to clients. This project was created in just over a week.
 
 [!NOTE] This repo contains code for the front end. For back end, please refer to the repo [HERE](https://github.com/normanKL/project-3-licensing-portal-BE)
 
 ## Installation
-
 * You can check out the live application [HERE]()
   - You can use your own login credentials, or try a demo one using:
     - username:
@@ -19,7 +17,7 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 
   [!NOTE] You will need to create a collection link in your MongoDB and amend the code before run `npm run dev`
 
-  ## Licensing Portal Walkthrough 
+## Licensing Portal Walkthrough 
 
   ### Home, Signup and Login Pages
   
@@ -69,6 +67,45 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
   * Back End:
     
 ## Features
+
+* Profile Display and Navigation: View all user and specialist profiles, with the ability to navigate to individual profile pages for detailed information.
+* Real-time Search: Quickly search through specialist profiles by name, region, or branch.
+* Restricted Profile Editing: Users can edit specialist profiles, but only for those within their assigned region.
+* Authentication: Log in and sign up functionality is available for users.
+* IT Support Access: A dedicated button allows users to email IT support directly for assistance.
+
+Post Login Capabilities:
+* Welcome Banner: Upon login, a personalized banner greets the user by name.
+* Create Specialist Profiles: Users can create new specialist profiles, but only within their assigned region.
+* Edit Specialist Profiles: Users can update the licensing status of specialists, restricted to those within their region.
+* Delete Specialist Profiles: Users can remove specialist profiles, provided they belong to their region.
+* View and Contact Other Users: Users have access to view other users' profiles and can email them directly.
+
+## Architecture
+
+### Front End:
+* React Components to compartmentalise code
+* React Hooks for state management and handling side effects
+* Single Page Application (react-router-dom) using Link, useNavigate, useLocation and useParams
+
+### Back End:
+* All security checks (user access credentials) done in the back end:
+* Email validation (correct format and uniqueness)
+* Password validation (encryption and strength: minimum of 8 characters, at least one lowercase & uppercase letter and number)
+* Obscuring the password response from the front end
+* Login credentials expire after 24 hours
+* Secure routing middelware to verify logged in users and only that same user can create. edit and delete specialist profiles under his/ her region
+* Error handling middleware to assist with debugging
+* 4 interlinked schema models in MongoDB for profiles, comments and posts
+* Data seeding of 3 user profiles, 6 specialist profiles, 6 Life Insurance licensing status and 6 Takaful licensing status
+
+## Future Improvements & Bugs
+This is a basic licensing portal that can be developed in just over a week. However, to make it a fully functional and valuable tool, several improvements and additional features are needed:
+* Expanded Product Coverage: Currently, the portal only tracks licensing status for Life Insurance and Takaful, including exam information. In practice, licensing is also required for additional wealth management products, such as unit trusts and more complex financial offerings.
+* Product Certification Integration: Beyond licensing, specialists must be product-certified before engaging with clients. This portal should include product certification tracking and be integrated with other systems, such as underwriting and system access management.
+* Streamlined Specialist Onboarding: The current process places an additional burden on licensing specialists. Ideally, new specialists should receive an automated email with a link to complete forms and upload required documents, such as certificates, directly through the portal.
+
+After several rounds of testing, no bugs have been identified in this version of the portal.
 
   
 
