@@ -19,12 +19,6 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 
   [!NOTE] You will need to create a collection link in your MongoDB and amend the code before run `npm run dev`
 
-  ## Planning 
-
-  I had a discussion with the instructor on the plan and structure of this project and below is the signoff version on _Excalidraw_
-
-  ![image](https://github.com/user-attachments/assets/graph.png)
-
   ## Licensing Portal Walkthrough 
 
   ### Home, Signup and Login Pages
