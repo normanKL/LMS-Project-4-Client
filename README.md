@@ -29,19 +29,19 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 
   ### User and Team Pages
 
-  <img src="https://github.com/user-attachments/assets/902f9252-97f5-4b33-a244-2559d755cbc0" alt="image" height = "450" width="350" style="float: left; margin-right: 20px;" />
-  <img src="https://github.com/user-attachments/assets/4a60c9bf-e7a9-4492-9c07-8d7c223ff54f" alt="image" height = "300" width="500" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/902f9252-97f5-4b33-a244-2559d755cbc0" alt="image" height = "430" width="350" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/4a60c9bf-e7a9-4492-9c07-8d7c223ff54f" alt="image" height = "280" width="500" style="float: left; margin-right: 20px;" />
 
    ### All Specialist and Individual Specialist
   
-  <img src="https://github.com/user-attachments/assets/5ac5f183-bc18-4fa6-89c0-624aed4ea8f1" alt="image" height = "300" width="450" style="float: left; margin-right: 20px;" />
-  <img src="https://github.com/user-attachments/assets/cab5e11f-9f6e-47ad-8440-ba8e09a2cd88" alt="image" height = "400" width="350" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/5ac5f183-bc18-4fa6-89c0-624aed4ea8f1" alt="image" height = "280" width="450" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/cab5e11f-9f6e-47ad-8440-ba8e09a2cd88" alt="image" height = "380" width="350" style="float: left; margin-right: 20px;" />
 
   ### Search, Edit, and Create Specialist Record Pages
 
   <img src="https://github.com/user-attachments/assets/6e6cd003-3108-4136-b28d-43d8e5a4a18f" alt="image" height = "300" width="450" style="float: left; margin-right: 20px;" />
-  <img src="https://github.com/user-attachments/assets/d581190a-1342-445c-aeb8-908e983e8158" alt="image" height = "300" width="450" style="float: left; margin-right: 20px;" />
-  <img src="https://github.com/user-attachments/assets/d3074f55-7698-4586-b7fd-28c67d74c287" alt="image" height = "300" width="450" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/d581190a-1342-445c-aeb8-908e983e8158" alt="image" height = "300" width="430" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/d3074f55-7698-4586-b7fd-28c67d74c287" alt="image" height = "300" width="430" style="float: left; margin-right: 20px;" />
 
  ## Tech Stack
 
