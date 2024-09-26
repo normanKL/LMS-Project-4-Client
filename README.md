@@ -3,7 +3,8 @@
 ## Introduction
 The Licensing Portal for the FI Sales Team is a full-stack MERN application (MongoDB, Express, React, and Node) that allows the Licensing Team of a Financial Institution to manage the licensing of the sales team, ensuring they are authorized to sell life insurance and takaful products to clients. This project was created in just over a week.
 
-[!NOTE] This repo contains code for the front end. For back end, please refer to the repo [HERE](https://github.com/normanKL/project-3-licensing-portal-BE)
+> [!NOTE] 
+> This repo contains code for the front end. For back end, please refer to the repo [HERE](https://github.com/normanKL/project-3-licensing-portal-BE)
 
 ## Installation
 * You can check out the live application [HERE]()
