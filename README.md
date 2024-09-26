@@ -39,9 +39,9 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
   
   ### Search, Edit, and Create Specialist Record Pages
 
-  <img src="https://github.com/user-attachments/assets/6e6cd003-3108-4136-b28d-43d8e5a4a18f" alt="image" height = "300" width="450" style="float: left; margin-right: 20px;" />
-  <img src="https://github.com/user-attachments/assets/d581190a-1342-445c-aeb8-908e983e8158" alt="image" height = "300" width="430" style="float: left; margin-right: 20px;" />
-  <img src="https://github.com/user-attachments/assets/d3074f55-7698-4586-b7fd-28c67d74c287" alt="image" height = "300" width="450" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/6e6cd003-3108-4136-b28d-43d8e5a4a18f" alt="image" height = "280" width="380" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/d581190a-1342-445c-aeb8-908e983e8158" alt="image" height = "280" width="380" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/d3074f55-7698-4586-b7fd-28c67d74c287" alt="image" height = "280" width="380" style="float: left; margin-right: 20px;" />
 
  ## Tech Stack
 
