@@ -11,15 +11,18 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 ## Installation
 
 * You can check out the live application [HERE]()
-  - You can use your own login credentials, or try a demo one using:
-    - username:
-    - password:
+  You can use your own login credentials, or try a demo one using:
+    + username:
+    + password:
 
 * You can also run it locally (requirement: have a local version of MongoDB running)
-  - Front end: Clone this repo -> run `npm install` -> run `npm run dev`
-  - Back end: Clone this repo -> run `npm install` -> run `npm run dev`
+  +  Front end: Clone this repo -> run `npm install` -> run `npm run dev`
+  +  Back end: Clone this repo -> run `npm install` -> run `npm run dev`
 
-  [!NOTE] You will need to create a collection link in your MongoDB and amend the code before run `npm run dev`
+
+> [!NOTE]
+> You will need to create a collection link in your MongoDB and amend the code before run `npm run dev`
+
 
 ## Licensing Portal Walkthrough 
 
