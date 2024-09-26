@@ -23,7 +23,7 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 
   I had a discussion with the instructor on the plan and structure of this project and below is the signoff version on _Excalidraw_
 
-  ![alt text](<Screenshot 2024-09-26 at 6.34.21 PM.png>)
+  ![image](<Screenshot 2024-09-26 at 6.34.21 PM.png>)
 
   ## Licensing Portal Walkthrough 
 
