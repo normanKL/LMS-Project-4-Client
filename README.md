@@ -23,7 +23,7 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 
   ### Home, Signup and Login Pages
   
-  <img src="https://github.com/user-attachments/assets/7de17db3-2bdf-4794-8c34-95233364ac64" alt="image" height = "350" width="450" style="float: left; margin-right: 10px;" />
+  <img src="https://github.com/user-attachments/assets/7de17db3-2bdf-4794-8c34-95233364ac64" alt="image" height = "350" width="480" style="float: left; margin-right: 10px;" />
   <img src="https://github.com/user-attachments/assets/9dfcab72-1d58-417b-a748-6d392692c57c" alt="image" height = "350" width="450" style="float: left; margin-right: 10px;" />
   <img src="https://github.com/user-attachments/assets/b4c95387-21a6-43cc-b84c-dffa373ec7ee" alt="image" height = "350" width="450" style="float: left; margin-right: 10px;" />
 
