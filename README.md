@@ -34,8 +34,8 @@ The Licensing Portal for the FI Sales Team is a full-stack MERN application (Mon
 
    ### All Specialist and Individual Specialist
   
-  <img src="https://github.com/user-attachments/assets/5ac5f183-bc18-4fa6-89c0-624aed4ea8f1" alt="image" height = "300" width="500" style="float: left; margin-right: 20px;" />
-  <img src="https://github.com/user-attachments/assets/cab5e11f-9f6e-47ad-8440-ba8e09a2cd88" alt="image" height = "450" width="350" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/5ac5f183-bc18-4fa6-89c0-624aed4ea8f1" alt="image" height = "300" width="480" style="float: left; margin-right: 20px;" />
+  <img src="https://github.com/user-attachments/assets/cab5e11f-9f6e-47ad-8440-ba8e09a2cd88" alt="image" height = "430" width="350" style="float: left; margin-right: 20px;" />
 
   ### Search, Edit, and Create Specialist Record Pages
 
