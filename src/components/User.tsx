@@ -5,6 +5,7 @@ import axios from 'axios';
 import { IUser } from '../interfaces/user';
 import { ISpecialist } from '../interfaces/specialist';
 import { Link, useNavigate } from 'react-router-dom';
+import {baseUrl} from '../config'
 
 const User: React.FC = () => {
     const [user, setUser] = useState<IUser | null>(null)
@@ -23,7 +24,7 @@ const User: React.FC = () => {
             }
 
             try {
-                const userResponse = await axios.get('/api/user', {
+                const userResponse = await axios.get(`${baseUrl}/user`, {
                     headers: { Authorization: `Bearer ${token}` },
                 })
                 setUser(userResponse.data)
@@ -45,7 +46,7 @@ const User: React.FC = () => {
     //This is also to prevent the error for user without specialist (unable to load)
     const fetchSpecialists = async (userId: string, token: string) => {
         try {
-            const specialistsResponse = await axios.get(`/api/specialists/user/${userId}`, {
+            const specialistsResponse = await axios.get(`${baseUrl}/specialists/user/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             setSpecialists(specialistsResponse.data)
@@ -57,7 +58,7 @@ const User: React.FC = () => {
     const handleRemoveSpecialist = async (id: string) => {
         const token = localStorage.getItem('token')
         try {
-            await axios.delete(`/api/specialists/${id}`, {
+            await axios.delete(`${baseUrl}/specialists/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
             setSpecialists(prevSpecialists => prevSpecialists.filter(specialist => specialist._id !== id))

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Specialist from './Specialist'; 
 import { ISpecialist } from '../interfaces/specialist'; 
 import { Link } from 'react-router-dom'; // Import Link for navigation
+import {baseUrl} from '../config'
 
 const SpecialistList: React.FC = () => {
     const [specialists, setSpecialists] = useState<ISpecialist[]>([])
@@ -12,7 +13,7 @@ const SpecialistList: React.FC = () => {
     useEffect(() => {
         const fetchSpecialists = async () => {
             try {
-                const response = await axios.get<ISpecialist[]>('http://localhost:8000/api/specialists')
+                const response = await axios.get<ISpecialist[]>(`${baseUrl}/specialists`)
                 setSpecialists(response.data)
             } catch (error) {
                 console.error("Error fetching specialists:", error)

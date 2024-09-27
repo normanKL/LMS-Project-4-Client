@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ISpecialist } from '../interfaces/specialist';
+import {baseUrl} from '../config'
 
 function SpecialistDetail() {
     const { id } = useParams<{ id: string }>()
@@ -14,7 +15,7 @@ function SpecialistDetail() {
         const fetchSpecialist = async () => {
             try {
                 const token = localStorage.getItem('token')
-                const response = await axios.get(`/api/specialists/${id}`, {
+                const response = await axios.get(`${baseUrl} /specialists/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

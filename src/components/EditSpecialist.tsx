@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ISpecialist, IInsurance, ITakaful } from '../interfaces/specialist';
+import {baseUrl} from '../config'
 
 const EditSpecialist = () => {
     const { id } = useParams<{ id: string }>()
@@ -26,7 +27,7 @@ const EditSpecialist = () => {
         const fetchSpecialist = async () => {
             try {
                 const token = localStorage.getItem('token')
-                const response = await axios.get(`/api/specialists/${id}`, {
+                const response = await axios.get(`${baseUrl}/specialists/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -71,7 +72,7 @@ const EditSpecialist = () => {
                 status: takaful.status,
             }
 
-            await axios.put(`/api/specialists/${id}`, { insurance: insuranceData, takaful: takafulData }, {
+            await axios.put(`${baseUrl}/specialists/${id}`, { insurance: insuranceData, takaful: takafulData }, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

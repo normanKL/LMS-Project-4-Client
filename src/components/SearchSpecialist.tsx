@@ -5,6 +5,7 @@ import axios from 'axios';
 import Specialist from './Specialist';
 import { ISpecialist } from '../interfaces/specialist';
 import { useNavigate } from 'react-router-dom';
+import {baseUrl} from '../config'
 
 const SearchSpecialist: React.FC = () => {
     const [name, setName] = useState('')
@@ -25,7 +26,7 @@ const SearchSpecialist: React.FC = () => {
 
             const token = localStorage.getItem('token')
 
-            const response = await axios.get<ISpecialist[]>('http://localhost:8000/api/specialists/search', {
+            const response = await axios.get<ISpecialist[]>(`${baseUrl}/specialists/search`, {
                 params,
                 headers: {
                     Authorization: `Bearer ${token}`,

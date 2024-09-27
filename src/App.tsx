@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import CreateSpecialist from './components/CreateSpecialist';
 import EditSpecialist from "./components/EditSpecialist";
 import SearchSpecialist from './components/SearchSpecialist';
+import {baseUrl} from './config'
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
   async function fetchUser() {
     try {
       const token = localStorage.getItem("token")
-      const response = await axios.get("http://localhost:8000/api/user", {
+      const response = await axios.get(`${baseUrl}/user`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(response.data)

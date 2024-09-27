@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import {baseUrl} from '../config'
 
 const CreateSpecialist: React.FC = () => {
     const [newSpecialist, setNewSpecialist] = useState({
@@ -28,7 +29,7 @@ const CreateSpecialist: React.FC = () => {
         e.preventDefault()
         try {
             const token = localStorage.getItem('token')
-            await axios.post('/api/create-specialist', newSpecialist, {
+            await axios.post(`${baseUrl}/create-specialist`, newSpecialist, {
                 headers: { Authorization: `Bearer ${token}` }
             })
             navigate('/user')

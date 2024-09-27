@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { IUser } from '../interfaces/user';
+import {baseUrl} from '../config'
 
 const Team: React.FC = () => {
     const [users, setUsers] = useState<IUser[]>([])
@@ -12,7 +13,7 @@ const Team: React.FC = () => {
         const fetchUsers = async () => {
             try {
                 const token = localStorage.getItem('token')
-                const response = await axios.get('/api/team', {
+                const response = await axios.get(`${baseUrl}/team`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
