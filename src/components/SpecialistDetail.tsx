@@ -15,7 +15,7 @@ function SpecialistDetail() {
         const fetchSpecialist = async () => {
             try {
                 const token = localStorage.getItem('token')
-                const response = await axios.get(`${baseUrl} /specialists/${id}`, {
+                const response = await axios.get(`${baseUrl}/specialists/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
