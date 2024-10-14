@@ -10,7 +10,7 @@ The Learning Portal is a comprehensive full-stack application that enables users
 
 ## Installation
 
-You can check out the live application [HERE]() <br/>
+You can check out the live application [HERE](https://github.com/normanKL/LMS-Project-4-Backend) <br/>
 You can use your own login credentials, or try a demo one using: <br/>
     > username: <br/>
     > password: <br/>
