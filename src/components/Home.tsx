@@ -6,18 +6,18 @@ function Home() {
     const navigate = useNavigate()
 
     const handleLoginClick = () => {
-        navigate("/login");
+        navigate("auth/login");
     }
 
     const handleSignupClick = () => {
-        navigate("/signup");
+        navigate("auth/register");
     }
 
     return (
         <section
             className="hero is-black is-fullheight-with-navbar"
             style={{
-                backgroundImage: `url('https://images.pexels.com/photos/1111319/pexels-photo-1111319.jpeg')`,
+                backgroundImage: `url('https://images.pexels.com/photos/772988/pexels-photo-772988.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
@@ -25,8 +25,8 @@ function Home() {
         >
             <div className="hero-body has-text-centered">
                 <div className="container">
-                    <p className="title" style={{ fontSize: '50px', marginLeft: '300px' }}>HBBC Licensing Portal</p>
-                    <div className="buttons are-small is-centered" style={{ marginTop: '100px' }}>
+                    <p className="title" style={{ fontSize: '50px', marginLeft: '300px' }}>№.1 HugoLearn</p>
+                    <div className="buttons are-small is-centered" style={{ marginTop: '50px' }}>
                         <button
                             className="button is-white"
                             onClick={handleSignupClick}

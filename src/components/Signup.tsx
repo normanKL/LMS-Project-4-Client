@@ -3,58 +3,101 @@
 import { useState, SyntheticEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { IUser } from "../interfaces/user";
-import {baseUrl} from '../config'
+import { IUser } from "../interfaces/user";  // Assuming IUser includes _id and image
+import { baseUrl } from '../config';
 
+// Define a complete interface for the signup form data
 interface SignupFormData extends IUser {
-    password: string
-    passwordConfirmation: string
+    password: string;
+    password_confirmation: string;
+    first_name: string;
+    last_name: string;
+    image_url: string;   // **Added image_url**
+    country: string;     // **Added country**
+    quote: string;       // **Added quote**
+}
+
+// Define a type for error messages
+interface ErrorData {
+    email?: string;
+    username?: string;
+    first_name?: string;
+    last_name?: string;
+    password?: string;
+    password_confirmation?: string;
+    image_url?: string;   // **Added image_url to error data**
+    country?: string;      // **Added country to error data**
+    quote?: string;        // **Added quote to error data**
+    general?: string;      // For general error messages
+
 }
 
 function Signup() {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<SignupFormData>({
+        _id: "", // Include _id with an initial value
         email: "",
         username: "",
+        first_name: "",
+        last_name: "",
         password: "",
-        passwordConfirmation: "",
-        image: "",
-        designation: "",
-        region: "",
-        branch: "",
+        password_confirmation: "",
+        image_url: "",      // **Added image_url**
+        country: "",        // **Added country**
+        quote: "",          // **Added quote**
+
     });
 
-    const [errorData, setErrorData] = useState({
-        email: "",
-        username: "",
-        password: "",
-        passwordConfirmation: "",
-        image: "",
-        designation: "",
-        region: "",
-        branch: "",
-    })
+    const [errorData, setErrorData] = useState<ErrorData>({}); // Use ErrorData type for error messages
 
     const navigate = useNavigate();
 
     function handleChange(e: SyntheticEvent) {
-        const targetElement = e.target as HTMLInputElement
+        const targetElement = e.target as HTMLInputElement;
         const newFormData = {
             ...formData,
             [targetElement.name]: targetElement.value,
-        }
-        setFormData(newFormData)
+        };
+        setFormData(newFormData);
     }
 
     async function handleSubmit(e: SyntheticEvent) {
-        e.preventDefault()
+        e.preventDefault();
+
+        // Validate required fields
+        const requiredFields = ['email', 'username','password', 'password_confirmation', 'image_url', 'country', 'quote']; 
+        const newErrorData: ErrorData = {};
+
+        requiredFields.forEach(field => {
+            if (!formData[field as keyof SignupFormData]) {
+                newErrorData[field as keyof ErrorData] = `${field} is required.`;
+            }
+        });
+
+        // Validate password match
+        if (formData.password !== formData.password_confirmation) {
+            newErrorData.password_confirmation = "Passwords do not match.";
+        }
+
+        if (Object.keys(newErrorData).length > 0) {
+            setErrorData(newErrorData);
+            return;
+        }
+
+        // Clear previous error messages
+        setErrorData({});
 
         try {
-            // use axios to make a post request. We don't have to do response.json() with axios (if does it for us)
-            const response = await axios.post(`${baseUrl}/signup`, formData)
-            console.log(response.data)
-            navigate("/login")
+            const response = await axios.post(`${baseUrl}/auth/register/`, formData);
+            console.log(response.data);
+            navigate("/auth/login/");
         } catch (error: any) {
-            setErrorData(error.response.data.errors)
+            // Update state with error messages if the response contains them
+            if (error.response && error.response.data) {
+                setErrorData(error.response.data.errors || {});
+            } else {
+                // Fallback error message
+                setErrorData({ general: "An unexpected error occurred. Please try again." });
+            }
         }
     }
 
@@ -64,6 +107,44 @@ function Signup() {
                 <form onSubmit={handleSubmit}>
                     <h2 style={{ fontSize: '23px', fontWeight: 'bold' }}>Section A: Signup Details</h2>
                     <br />
+
+                    {/* First Name Field */}
+                    <div className="field">
+                        <label htmlFor="first_name" className="label">
+                            First Name
+                        </label>
+                        <div className="control">
+                            <input
+                                type="text"
+                                className="input"
+                                name="first_name"
+                                value={formData.first_name}
+                                onChange={handleChange}
+                            />
+                            {errorData.first_name && (
+                                <small className="has-text-danger">{errorData.first_name}</small>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Last Name Field */}
+                    <div className="field">
+                        <label htmlFor="last_name" className="label">
+                            Last Name
+                        </label>
+                        <div className="control">
+                            <input
+                                type="text"
+                                className="input"
+                                name="last_name"
+                                value={formData.last_name}
+                                onChange={handleChange}
+                            />
+                            {errorData.last_name && (
+                                <small className="has-text-danger">{errorData.last_name}</small>
+                            )}
+                        </div>
+                    </div>
 
                     {/* Username Field */}
                     <div className="field">
@@ -103,14 +184,71 @@ function Signup() {
                         </div>
                     </div>
 
-                    {/* Email Field */}
+                    {/* Image URL Field */}
+                    <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
+                        <label htmlFor="image_url" className="label">
+                            Image URL
+                        </label>
+                        <div className="control">
+                            <input
+                                type="text"
+                                className="input"
+                                name="image_url"
+                                value={formData.image_url}  // **Added value for image_url**
+                                onChange={handleChange}
+                            />
+                            {errorData.image_url && (
+                                <small className="has-text-danger">{errorData.image_url}</small>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Country Field */}
+                    <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
+                        <label htmlFor="country" className="label">
+                            Country
+                        </label>
+                        <div className="control">
+                            <input
+                                type="text"
+                                className="input"
+                                name="country"
+                                value={formData.country}  // **Added value for country**
+                                onChange={handleChange}
+                            />
+                            {errorData.country && (
+                                <small className="has-text-danger">{errorData.country}</small>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Quote Field */}
+                    <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
+                        <label htmlFor="quote" className="label">
+                            Quote
+                        </label>
+                        <div className="control">
+                            <input
+                                type="text"
+                                className="input"
+                                name="quote"
+                                value={formData.quote}  // **Added value for quote**
+                                onChange={handleChange}
+                            />
+                            {errorData.quote && (
+                                <small className="has-text-danger">{errorData.quote}</small>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Password Field */}
                     <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
                         <label htmlFor="password" className="label">
                             Password
                         </label>
                         <div className="control">
                             <input
-                                type="text"
+                                type="password"
                                 className="input"
                                 name="password"
                                 value={formData.password}
@@ -129,91 +267,33 @@ function Signup() {
                         </label>
                         <div className="control">
                             <input
-                                type="text"
+                                type="password"
                                 className="input"
-                                name="passwordConfirmation"
-                                value={formData.passwordConfirmation}
+                                name="password_confirmation"
+                                value={formData.password_confirmation}
                                 onChange={handleChange}
                             />
-                            {errorData.passwordConfirmation && (
+                            {errorData.password_confirmation && (
                                 <small className="has-text-danger">
-                                    {errorData.passwordConfirmation}
+                                    {errorData.password_confirmation}
                                 </small>
                             )}
                         </div>
                     </div>
 
-                    <br />
-                    <h2 style={{ fontSize: '23px', fontWeight: 'bold' }}> Section B: Profile Details</h2>
-                    <br />
+                    {/* General Error Message */}
+                    {errorData.general && (
+                        <small className="has-text-danger">{errorData.general}</small>
+                    )}
 
-                    {/* Image URL Field */}
-                    <div className="field">
-                        <label htmlFor="image" className="label">Image URL</label>
-                        <div className="control">
-                            <input type="text" className="input" name="image" value={formData.image} onChange={handleChange} />
-                            {errorData.image && <small className="has-text-danger">{errorData.image}</small>}
-                        </div>
-                    </div>
-
-                    {/* Designation Field */}
-                    <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <label htmlFor="designation" className="label">Designation</label>
-                        <div className="control">
-                            <input type="text" className="input" name="designation" value={formData.designation} onChange={handleChange} />
-                            {errorData.designation && <small className="has-text-danger">{errorData.designation}</small>}
-                        </div>
-                    </div>
-
-                    <div className="columns" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <div className="column">
-                            {/* Region Field */}
-                            <div className="field">
-                                <label htmlFor="region" className="label">Region</label>
-                                <div className="control">
-                                    <div className="select is-fullwidth">
-                                        <select name="region" value={formData.region} onChange={handleChange}>
-                                            <option value="">Select Region</option>
-                                            <option value="Northern 1">Northern 1</option>
-                                            <option value="Northern 2">Northern 2</option>
-                                            <option value="Central 1">Central 1</option>
-                                            <option value="Central 2">Central 2</option>
-                                            <option value="Southern">Southern</option>
-                                            <option value="East Malaysia">East Malaysia</option>
-                                        </select>
-                                    </div>
-                                    {errorData.region && <small className="has-text-danger">{errorData.region}</small>}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="column">
-                            {/* Branch Field */}
-                            <div className="field">
-                                <label htmlFor="branch" className="label">Branch</label>
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        className="input is-fullwidth"
-                                        name="branch"
-                                        value={formData.branch}
-                                        onChange={handleChange}
-                                    />
-                                    {errorData.branch && <small className="has-text-danger">{errorData.branch}</small>}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Submit Button */}
-                    <br />
-                    <button className="submit" type="submit" style={{ fontSize: '23px', fontWeight: 'bold', color: 'gold' }}>
-                        Submit
+                    <button type="submit" className="button is-primary" style={{ marginTop: '25px' }}>
+                        Sign Up
                     </button>
                 </form>
             </div>
         </div>
-    )
+    );
 }
 
 export default Signup;
+

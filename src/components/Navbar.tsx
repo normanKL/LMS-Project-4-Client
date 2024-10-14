@@ -13,6 +13,7 @@ function Navbar({ user, setUser }: NavbarProps) {
     const navigate = useNavigate()
     const location = useLocation()
     const [showWelcome, setShowWelcome] = useState(true)
+    const [currentTime, setCurrentTime] = useState<string>("")
 
     function logout() {
         localStorage.removeItem("token")
@@ -35,6 +36,22 @@ function Navbar({ user, setUser }: NavbarProps) {
             window.removeEventListener("scroll", handleScroll)
         }
     }, [])
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date();
+            const dateOptions: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+            const formattedDate = now.toLocaleDateString('en-GB', dateOptions);
+            const timeOptions: Intl.DateTimeFormatOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+            const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+            setCurrentTime(`📅 Date: ${formattedDate} ⏰ Time: ${formattedTime}`);
+        };
+
+        updateTime(); 
+        const intervalId = setInterval(updateTime, 60000); // Update every minute
+
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
         <>
@@ -60,24 +77,24 @@ function Navbar({ user, setUser }: NavbarProps) {
                             )}
                             {location.pathname !== "/" && !user && (
                                 <>
-                                    <Link to="/signup" className="navbar-item">
+                                    <Link to="auth/register" className="navbar-item">
                                         Signup
                                     </Link>
-                                    <Link to="/login" className="navbar-item">
+                                    <Link to="auth/login" className="navbar-item">
                                         Login
                                     </Link>
                                 </>
                             )}
                             {user && (
                                 <>
-                                    <Link to="/specialists" className="navbar-item">
-                                        HBBC Specialists
-                                    </Link>
-                                    <Link to="/team" className="navbar-item">
-                                        Your Team
-                                    </Link>
-                                    <Link to="/user" className="navbar-item">
+                                    <Link to="auth/user" className="navbar-item">
                                         Your Profile
+                                    </Link>
+                                    <Link to="courses/" className="navbar-item">
+                                        Courses
+                                    </Link>
+                                    <Link to="authors/" className="navbar-item">
+                                        Authors
                                     </Link>
                                 </>
                             )}
@@ -112,6 +129,7 @@ function Navbar({ user, setUser }: NavbarProps) {
                         }}
                     >
                         <p>{`🔆 Welcome ${user.username}`}</p>
+                        <p style={{ marginLeft: 'auto' }}>{currentTime}</p> 
                     </div>
                 )}
             </header>

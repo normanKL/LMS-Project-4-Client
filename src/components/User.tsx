@@ -1,174 +1,145 @@
-//- ./src/components/User.tsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { IUser } from '../interfaces/user';
-import { ISpecialist } from '../interfaces/specialist';
-import { Link, useNavigate } from 'react-router-dom';
-import {baseUrl} from '../config'
+import { ICourse } from '../interfaces/course';
+import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../config';
+import { Link } from "react-router-dom";
 
 const User: React.FC = () => {
-    const [user, setUser] = useState<IUser | null>(null)
-    const [specialists, setSpecialists] = useState<ISpecialist[]>([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<string | null>(null)
-    const navigate = useNavigate()
+    const [user, setUser] = useState<IUser | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [courses, setCourses] = useState<ICourse[]>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserData = async () => {
-            const token = localStorage.getItem('token')
+            const token = localStorage.getItem('token');
             if (!token) {
-                setError("Authentication error: No token found")
-                setLoading(false)
-                return
+                setError("Authentication error: No token found");
+                setLoading(false);
+                return;
             }
 
             try {
-                const userResponse = await axios.get(`${baseUrl}/user`, {
+                const userResponse = await axios.get(`${baseUrl}/auth/user/`, {
                     headers: { Authorization: `Bearer ${token}` },
-                })
-                setUser(userResponse.data)
+                });
+                setUser(userResponse.data);
 
-                if (userResponse.data._id) {
-                    fetchSpecialists(userResponse.data._id, token)
+                // Check if user ID is defined before fetching courses
+                const userId = userResponse.data._id;
+                if (userId) {
+                    await fetchCourses(userId, token);
+                } else {
+                    setError("User ID is undefined. Cannot fetch courses.");
                 }
             } catch (err) {
-                setError("Error fetching user data")
-                console.error(err)
+                setError("Error fetching user data");
+                console.error(err);
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
-        }
+        };
 
-        fetchUserData()
-    }, [])
+        fetchUserData();
+    }, []);
 
-    //This is also to prevent the error for user without specialist (unable to load)
-    const fetchSpecialists = async (userId: string, token: string) => {
+    const fetchCourses = async (userId: string, token: string) => {
         try {
-            const specialistsResponse = await axios.get(`${baseUrl}/specialists/user/${userId}`, {
+            const coursesResponse = await axios.get(`${baseUrl}/courses/user/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` },
-            })
-            setSpecialists(specialistsResponse.data)
+            });
+            setCourses(coursesResponse.data);
         } catch (err) {
-            console.error("Error fetching specialists:", err)
-        }
-    }
-
-    const handleRemoveSpecialist = async (id: string) => {
-        const token = localStorage.getItem('token')
-        try {
-            await axios.delete(`${baseUrl}/specialists/${id}`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
-            setSpecialists(prevSpecialists => prevSpecialists.filter(specialist => specialist._id !== id))
-            navigate('/user')
-        } catch (err) {
-            console.error("Error removing specialist:", err)
-            setError("Error removing specialist. Please try again.")
+            console.error("Error fetching courses:", err);
         }
     };
 
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>{error}</p>
+    const handleRemoveCourse = async (courseId: string) => {
+        const token = localStorage.getItem('token');
+        try {
+            await axios.delete(`${baseUrl}/courses/${courseId}/remove/`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            setCourses(prevCourses => prevCourses.filter(course => course.id !== courseId));
+            alert("Course removed from your profile successfully!");
+        } catch (err) {
+            console.error("Error removing course:", err);
+            alert("Failed to remove course from profile.");
+        }
+    };
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <div className="container">
-            <div className="profile-section" style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '30px', textAlign: 'center' }}>
+            <div className="profile-section" style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '50px', textAlign: 'center', marginTop: '150px' }}>
                 {user && (
-                    <div className="box">
-                        {user.image && (
-                            <img
-                                src={user.image}
-                                alt={user.username}
-                                style={{ width: '200px', height: '200px', borderRadius: '50%', objectFit: 'cover', marginTop: '10px' }}
-                            />
-                        )}
-                        <h2 className="subtitle" style={{ marginTop: '20px', fontSize: '1.3em', fontWeight: 'bold' }}>{user.username}</h2>
-                        <h4 style={{ fontWeight: 'bold', fontStyle: 'italic' }}>{user.designation}</h4>
-                        <h3 style={{ marginTop: '5px', fontSize: '18px', fontWeight: 'bold' }}>{user.email}</h3>
-                        <h4 style={{ marginTop: '25px', fontSize: '18px', fontWeight: 'bold' }}>Region: {user.region}</h4>
-                        <h4 style={{ fontSize: '18px', fontWeight: 'bold' }}>Branch: {user.branch}</h4>
+                    <div className="box" >
+                        <img
+                            src={user.image_url}
+                            alt="Profile"
+                            style={{ borderRadius: '50%', width: '200px', height: '200px', objectFit: 'cover', marginBottom: '10px' }}
+                        />
+                        <h1 className="subtitle" style={{ marginTop: '10px', fontSize: '1.5em', fontWeight: 'bold' }}>{user.username}</h1>
+                        {/* <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>{user.email}</h3> */}
+                        <p style={{ fontSize:'25px' }}>{user.country}</p>
+                        <p style={{ marginTop: '10px', color: 'yellow', fontSize: '23px' }}>"{user.quote}"</p>
                     </div>
                 )}
             </div>
 
-            <div className="has-text-centered" style={{ marginBottom: '20px' }}>
-                <Link to="/create-specialist">
-                    <button className="button is-primary">Create New Specialist</button>
-                </Link>
-            </div>
 
-            <div className="specialists-section" style={{ backgroundColor: '#f5f5f5', padding: '20px', paddingBottom: '60px', marginBottom: '100px' }}>
-                <h1 className="title has-text-centered" style={{ color: 'black', padding: '20px' }}>Specialists in Your Region</h1>
-                <br />
-                <div className="columns is-multiline" style={{ margin: '0' }}>
-                    {specialists.length > 0 ? (
-                        specialists.map(specialist => (
-                            <div className="column is-one-quarter" key={specialist._id}>
-                                <Link to={`/specialist/${specialist._id}`}>
-                                    <div className="card">
-                                        <div className="card-image">
-                                            {specialist.image && (
-                                                <figure className="image is-4by3" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                                    <img
-                                                        src={specialist.image}
-                                                        alt={specialist.name}
-                                                        style={{ objectFit: 'cover', width: '100%', height: '230px' }}
-                                                    />
+            {/* Section for Courses Added by User */}
+            <div className="courses-section">
+                <h2 className="title has-text-centered" style={{ marginBottom: '50px' }}>My Learning Journey</h2>
+                {courses.length > 0 ? (
+                    <div className="columns is-multiline">
+                        {courses.map(course => (
+                            <div key={course.id} className="column is-one-quarter-desktop is-one-third-tablet">
+                                <div className="card" style={{ marginBottom: '100px'}}>
+                                    <div className="card-content">
+                                        <Link to={`/courses/${course.id}`} className="card-content">
+                                            <div className="card-image">
+                                                <figure className="image">
+                                                    <img src={course.image_url} alt={course.title} style={{ objectFit: 'cover', width: 'auto', height: '300px' }} />
                                                 </figure>
-                                            )}
-                                        </div>
-                                        <div className="card-content">
-                                            <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginTop: '10px' }}>{specialist.name}</h2>
-                                            <p style={{ fontSize: '16px', fontWeight: 'bold' }}>{specialist.designation}</p>
-                                            <p style={{ fontSize: '16px', fontWeight: 'bold' }}>{specialist.email}</p>
-                                            <p style={{ marginTop: '10px', fontSize: '16px', fontWeight: 'bold' }}>Region: {specialist.region}</p>
-                                            <p style={{ fontSize: '16px', fontWeight: 'bold' }}>Branch: {specialist.branch}</p>
-
-                                            {/* Life Insurance and Takaful Status */}
-                                            <div className="insurance-status">
-                                                <p className="box has-background-white" style={{ color: specialist.insurance?.status === 'Completed' ? 'green' : 'red', fontWeight: 'bold', marginTop: '30px', fontSize: '17px', padding: '10px' }}>
-                                                    Life Insurance
-                                                    <p style={{ fontSize: '15px' }}> Status: {specialist.insurance ? specialist.insurance.status : 'No details'}</p>
-                                                </p>
-                                                <p className="box has-background-white" style={{ color: specialist.takaful?.status === 'Completed' ? 'green' : 'red', fontWeight: 'bold', fontSize: '17px', marginTop: '10px', marginBottom: '20px', padding: '10px' }}>
-                                                    Takaful
-                                                    <p style={{ fontSize: '15px' }}> Status: {specialist.takaful ? specialist.takaful.status : 'No details'}</p>
-                                                </p>
                                             </div>
+                                            <br/>
+                                            <p style={{ fontSize: '18px', fontWeight: 'bold' }}>{course.title}</p>
+                                        </Link>
 
-                                            <div className="columns" style={{ marginTop: '15px' }}>
-                                                <div className="column has-text-left">
-                                                    <Link to={`/edit-specialist/${specialist._id}`} className="button is-primary is-small" style={{ width: '100px' }}>
-                                                        Licensing
-                                                    </Link>
-                                                </div>
-                                                <div className="column has-text-right">
-                                                    <button
-                                                        className="button is-danger is-small"
-                                                        style={{ width: '100px' }}
-                                                        onClick={() => handleRemoveSpecialist(specialist._id)}
-                                                    >
-                                                        Remove
-                                                    </button>
-                                                </div>
-                                            </div>
+                                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                                            <button
+                                                className="button is-danger"
+                                                onClick={() => handleRemoveCourse(course.id)}
+                                                style={{ width: '80%' }} // Adjust button width if needed
+                                            >
+                                                Remove
+                                            </button>
                                         </div>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
-                        ))
-                    ) : (
-                        <p>No specialists found for this user.</p>
-                    )}
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No courses added yet.</p>
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default User
+export default User;
+
+
+
+
 
 
 

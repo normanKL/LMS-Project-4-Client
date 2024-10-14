@@ -8,15 +8,15 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import SpecialistList from "./components/SpecialistList"; 
-import SpecialistDetail from "./components/SpecialistDetail";
 import User from './components/User';
-import Team from './components/Team';
 import Footer from './components/Footer';
-import CreateSpecialist from './components/CreateSpecialist';
-import EditSpecialist from "./components/EditSpecialist";
-import SearchSpecialist from './components/SearchSpecialist';
+import Course from './components/Course';
+import CourseList from './components/CourseList'
+import CourseDetail from "./components/CourseDetail";
+import AuthorCoursesList from "./components/AuthorCoursesList";
+
 import {baseUrl} from './config'
+import AuthorList from "./components/AuthorList";
 
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
   async function fetchUser() {
     try {
       const token = localStorage.getItem("token")
-      const response = await axios.get(`${baseUrl}/user`, {
+      const response = await axios.get(`${baseUrl}/auth/user`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser(response.data)
@@ -48,15 +48,13 @@ function App() {
       <Navbar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login fetchUser={fetchUser} />} />
-        <Route path="/specialists" element={<SpecialistList />} /> 
-        <Route path="/search" element={<SearchSpecialist />} /> 
-        <Route path="/specialist/:id" element={<SpecialistDetail />} />
-        <Route path="/create-specialist" element={<CreateSpecialist />} />
-        <Route path="/edit-specialist/:id" element={<EditSpecialist />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/user" element={<User />} />
+        <Route path="auth/register" element={<Signup />} />
+        <Route path="auth/login" element={<Login fetchUser={fetchUser} />} />
+        <Route path="courses/" element={<CourseList />} />
+        <Route path="courses/:id" element={<CourseDetail />} /> 
+        <Route path="auth/user" element={<User />} />
+        <Route path="authors/" element={<AuthorList />} />
+        <Route path="authors/:authorId/courses" element={<AuthorCoursesList />} />
       </Routes>
     </Router>
     <Footer />
