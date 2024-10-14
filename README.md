@@ -10,8 +10,8 @@ The Learning Portal is a comprehensive full-stack application that enables users
 
 ## Installation
 
-* You can check out the live application [HERE]()
-  You can use your own login credentials, or try a demo one using:
+You can check out the live application [HERE]() <br/>
+You can use your own login credentials, or try a demo one using:
     + username:
     + password:
 
@@ -79,18 +79,18 @@ The Learning Portal is a comprehensive full-stack application that enables users
 
 ### Back End:
 * All security checks (user access credentials) done in the back end:
-* 1) Email validation (correct format and uniqueness)
-* 2) Password validation 
-* 3) Obscuring the password response in the database and from the client side
-* 4) Login credentials expire after 1 day
+1) Email validation (correct format and uniqueness) <br/>
+2) Password validation <br/>
+3) Obscuring the password response in the database and from the client side <br/>
+4) Login credentials expire after 1 day <br/>
 * Data seeding of 20 programs, 10 authors and 5 users.
 * 5 tables/models in PostgreSQL, many-to-many relationships
 
 
 ## Future Improvements & Bugs
 * While this is a basic portal that can be developed in just over a week, several enhancements and additional features are necessary to transform it into a fully functional and valuable tool:
-* 1) Integration with a Learning Platform: The app should be connected to a comprehensive learning platform that offers actual learning materials, assessments, certification options, and program completion status categorized by level.
-* 2) Enhanced Data and Search Functionality: Currently, the data is limited. It would be beneficial to expand the dataset and implement a feature that allows users to search for educational offerings by topics and industries. 
-* 3) Payment/Donation Functionality: If this is intended to be a paid learning portal, a payment or donation function should be incorporated to facilitate transactions.
+1) Integration with a Learning Platform: The app should be connected to a comprehensive learning platform that offers actual learning materials, assessments, certification options, and program completion status categorized by level. <br/>
+2) Enhanced Data and Search Functionality: Currently, the data is limited. It would be beneficial to expand the dataset and implement a feature that allows users to search for educational offerings by topics and industries. <br/>
+3) Payment/Donation Functionality: If this is intended to be a paid learning portal, a payment or donation function should be incorporated to facilitate transactions. <br/>
 
 * After several rounds of testing, no bugs have been identified in this version of the portal.
