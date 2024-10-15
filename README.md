@@ -10,15 +10,14 @@ The Learning Portal is a comprehensive full-stack application that enables users
 
 ## Installation
 
-You can check out the live application [HERE](https://github.com/normanKL/LMS-Project-4-Backend) <br/>
-You can use your own login credentials, or try a demo one using: <br/>
-    > username: <br/>
-    > password: <br/>
+You can check out the live application [HERE](https://lms-project-4-client.netlify.app/) <br/>
+You can sign up and log into the app.
 
 
 ## Licensing Portal Walkthrough 
 
    ### Home, Signup and Login Pages
+![Uploading image.png…]()
 
 
   ### User's Profile Page
