@@ -17,18 +17,22 @@ You can sign up and log into the app.
 ## Licensing Portal Walkthrough 
 
    ### Home, Signup and Login Pages
-![Uploading image.png…]()
-
+   ![image](https://github.com/user-attachments/assets/333c8b9f-2c12-425b-9f05-644c41780048) 
+   ![image](https://github.com/user-attachments/assets/0c1bec20-262a-4700-af1d-374e8c7e8453)
+   ![image](https://github.com/user-attachments/assets/97768db7-9c62-4bcf-ab28-6382fa36c430)
 
   ### User's Profile Page
-
+   ![image](https://github.com/user-attachments/assets/14c26ca4-04e4-42ef-8e7f-912171da2efd)
+   ![image](https://github.com/user-attachments/assets/5d9437f2-5655-4a8f-b052-8c3cd79e6fd1)
 
    ### Learning Programs Pages
-
+   ![image](https://github.com/user-attachments/assets/943d1d2e-c8b8-45df-badf-e2a2b46db75a)
+   ![image](https://github.com/user-attachments/assets/87111ff1-e356-48ad-9251-60b98d1c89ff)
+   ![image](https://github.com/user-attachments/assets/63d88e59-2f10-41ce-8adb-d560ae63acb5)
 
    ### Author Pages
-
-
+   ![image](https://github.com/user-attachments/assets/308e6b01-9c30-471d-8b5f-85a939fcf082)
+   ![image](https://github.com/user-attachments/assets/69b4507c-338a-412c-a10d-5e95efc09bf1)
 
  ## Tech Stack
 
