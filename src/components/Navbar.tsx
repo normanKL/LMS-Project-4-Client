@@ -124,13 +124,12 @@ function Navbar({ user, setUser }: NavbarProps) {
                             color: '#fff', // White text color
                             padding: '30px 0',
                             zIndex: 999, // Below the navbar but above the content
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            gap: '450px'
+                            justifyContent: 'flex-start',
+                            paddingLeft: '40px',
                         }}
                     >
                         <p>{`🔆 Welcome ${user.username}`}</p>
-                        <p>{currentTime}</p> 
+                        {/* <p style={{ marginLeft: 'auto' }}>{currentTime}</p>  */}
                     </div>
                 )}
             </header>
