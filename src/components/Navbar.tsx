@@ -125,7 +125,7 @@ function Navbar({ user, setUser }: NavbarProps) {
                             padding: '30px 0',
                             zIndex: 999, // Below the navbar but above the content
                             justifyContent: 'flex-start',
-                            paddingLeft: '40px',
+                            paddingLeft: '70px',
                         }}
                     >
                         <p>{`🔆 Welcome ${user.username}`}</p>
