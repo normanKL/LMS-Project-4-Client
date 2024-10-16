@@ -126,7 +126,7 @@ function Navbar({ user, setUser }: NavbarProps) {
                             zIndex: 999, // Below the navbar but above the content
                             justifyContent: 'center',
                             alignItems: 'center',
-                            gap: '200px'
+                            gap: '700px'
                         }}
                     >
                         <p>{`🔆 Welcome ${user.username}`}</p>
