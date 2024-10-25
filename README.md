@@ -13,7 +13,7 @@ The Learning Portal is a comprehensive full-stack application that enables users
 You can check out the live application [HERE](https://lms-project-4-client.netlify.app/) <br/>
 You can use your own login credentials, or try a demo one using:
 
-email:waiwai@gmail.com
+email:waiwai@gmail.com <br/>
 password:893testing#
 
 
