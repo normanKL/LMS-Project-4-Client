@@ -11,7 +11,10 @@ The Learning Portal is a comprehensive full-stack application that enables users
 ## Installation
 
 You can check out the live application [HERE](https://lms-project-4-client.netlify.app/) <br/>
-You can sign up and log into the app.
+You can use your own login credentials, or try a demo one using:
+
+email:waiwai@gmail.com
+password:893testing#
 
 
 ## Licensing Portal Walkthrough 
