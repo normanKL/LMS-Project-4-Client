@@ -5,6 +5,7 @@ import { ICourse } from '../interfaces/course';
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../config';
 import { Link } from "react-router-dom";
+import './User.css'
 
 const User: React.FC = () => {
     const [user, setUser] = useState<IUser | null>(null);
@@ -76,8 +77,8 @@ const User: React.FC = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className="container">
-            <div className="profile-section" style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '50px', textAlign: 'center', marginTop: '150px' }}>
+        <div className="container" style={{marginBottom:'150px'}}>
+            <div className="profile-section" style={{ backgroundColor: '#f5f5f5', padding: '30px', marginBottom: '50px', textAlign: 'center', marginTop: '150px'}}>
                 {user && (
                     <div className="box" >
                         <img
@@ -100,13 +101,13 @@ const User: React.FC = () => {
                 {courses.length > 0 ? (
                     <div className="columns is-multiline">
                         {courses.map(course => (
-                            <div key={course.id} className="column is-one-quarter-desktop is-one-third-tablet">
-                                <div className="card" style={{ marginBottom: '100px'}}>
+                            <div key={course.id} className="column is-one-third-desktop is-half-tablet">
+                                <div className="card" style={{height: '580px'}}>
                                     <div className="card-content">
                                         <Link to={`/courses/${course.id}`} className="card-content">
                                             <div className="card-image">
                                                 <figure className="image">
-                                                    <img src={course.image_url} alt={course.title} style={{ objectFit: 'cover', width: 'auto', height: '300px' }} />
+                                                    <img src={course.image_url} alt={course.title} style={{ objectFit: 'cover', width: '100%', height: '300px' }} />
                                                 </figure>
                                             </div>
                                             <br/>

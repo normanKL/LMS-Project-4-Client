@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IUser } from "../interfaces/user";  // Assuming IUser includes _id and image
 import { baseUrl } from '../config';
+import './Signup.css'
 
 // Define a complete interface for the signup form data
 interface SignupFormData extends IUser {
@@ -102,7 +103,7 @@ function Signup() {
     }
 
     return (
-        <div className="section">
+        <div className="signup-section">
             <div className="container" style={{ paddingBottom: '80px' }}>
                 <form onSubmit={handleSubmit}>
                     <h2 style={{ fontSize: '23px', fontWeight: 'bold' }}>Section A: Signup Details</h2>

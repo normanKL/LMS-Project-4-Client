@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ICourse, IComment } from '../interfaces/course';
 import { baseUrl } from '../config';
+import './CourseDetail.css'
 
 function CourseDetail() {
     const { id } = useParams<{ id: string }>();

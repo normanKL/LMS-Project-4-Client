@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { IUser } from "../interfaces/user";
+import './Navbar.css'
 
 interface NavbarProps {
     user: null | IUser
@@ -47,7 +48,7 @@ function Navbar({ user, setUser }: NavbarProps) {
             setCurrentTime(`📅 Date: ${formattedDate} ⏰ Time: ${formattedTime}`);
         };
 
-        updateTime(); 
+        updateTime();
         const intervalId = setInterval(updateTime, 60000); // Update every minute
 
         return () => clearInterval(intervalId);
@@ -67,7 +68,7 @@ function Navbar({ user, setUser }: NavbarProps) {
                         zIndex: 1000, // Ensure it's above other content
                     }}
                 >
-                    <div className="container">
+                    <div className="navbar-container is-flex is-align-items-center" style={{ width: '100%' }}>
                         <div className="navbar-brand">
                             {/* Only show Home link when the user is not logged in */}
                             {!user && (
@@ -112,26 +113,25 @@ function Navbar({ user, setUser }: NavbarProps) {
                     </div>
                 </nav>
 
-                {/* Fixed Welcome Message Below Navbar */}
-                {user && showWelcome && ( 
-                    <div
-                        className="container is-flex"
-                        style={{
-                            position: 'fixed',
-                            top: '50px', // Just below the navbar
-                            left: 0,
-                            width: '100%',
-                            color: '#fff', // White text color
-                            padding: '30px 0',
-                            zIndex: 999, // Below the navbar but above the content
-                            justifyContent: 'flex-start',
-                            paddingLeft: '70px',
-                        }}
-                    >
-                        <p>{`🔆 Welcome ${user.username}`}</p>
-                        {/* <p style={{ marginLeft: 'auto' }}>{currentTime}</p>  */}
-                    </div>
-                )}
+                    {user && showWelcome && (
+                        <div
+                            className="container is-flex"
+                            style={{
+                                position: 'relative',
+                                top: '60px', // Just below the navbar
+                                left: 0,
+                                width: '100%',
+                                color: '#fff', // White text color
+                                paddingTop:'30px',
+                                zIndex: 999, // Below the navbar but above the content
+                                justifyContent: 'center',
+                                marginBottom:'-30px'
+                            }}
+                        >
+                            <p className="welcome-message">{`🔆 Welcome ${user.username}`}</p>
+                            <p className="welcome-time" style={{ marginLeft: 'auto' }}>{currentTime}</p> 
+                        </div>
+                    )}
             </header>
 
             {/* Add a margin-top to content below to avoid overlap */}

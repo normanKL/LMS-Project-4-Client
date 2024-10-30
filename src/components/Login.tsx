@@ -4,6 +4,7 @@ import { useState, SyntheticEvent } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {baseUrl} from '../config'
+import './Login.css'
 
 function Login({ fetchUser }: { fetchUser: Function }) {
   const navigate = useNavigate()
@@ -33,7 +34,7 @@ function Login({ fetchUser }: { fetchUser: Function }) {
   }
 
   return (
-    <div className="section">
+    <div className="login-section">
       <div className="container">
         <form onSubmit={handleSubmit}>
           <div className="field">

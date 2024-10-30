@@ -6,6 +6,7 @@ import Course from './Course';
 import { ICourse } from '../interfaces/course';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 import { baseUrl } from '../config'
+import './courseList.css'
 
 const CoursetList: React.FC = () => {
     const [course, setCourse] = useState<ICourse[]>([])
@@ -25,13 +26,15 @@ const CoursetList: React.FC = () => {
 
     return (
         <>
-            <h1 className="title has-text-centered" style={{ marginTop: '150px' }}>Learning Courses</h1>
-            <p style={{ margin: '30px', textAlign: 'center' }}>🌟 Click the courses for more details 🌟</p>
-            <div style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '100px', marginTop: '40px' }}>
-                <div className="columns is-multiline box">
-                    {course.map((courseItem) => (
-                        <Course key={courseItem.id} {...courseItem} />
-                    ))}
+            <div className="course-list">
+                <h1 className="title has-text-centered" style={{ marginTop: '150px' }}>Learning Courses</h1>
+                <p style={{ margin: '30px', textAlign: 'center' }}>🌟 Click the courses for more details 🌟</p>
+                <div style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '50px', marginTop: '40px' }}>
+                    <div className="columns is-multiline box">
+                        {course.map((courseItem) => (
+                            <Course key={courseItem.id} {...courseItem} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

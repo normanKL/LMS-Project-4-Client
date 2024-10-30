@@ -1,0 +1,34 @@
+@media (max-width: 2800px) and (orientation: landscape) {
+    .copyright {
+            font-size: 20px;
+            padding: 0px 0px;
+        }
+}
+
+@media (max-width: 1800px) and (orientation: landscape) {
+    .copyright {
+            font-size: 18px;
+            padding: 0px 10px;
+        }
+}
+
+@media (max-width: 1200px) and (orientation: portrait) {
+    .footer {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) and (orientation: landscape) {
+    .copyright {
+            font-size: 13px;
+            padding: 0px 20px;
+        }
+}
+
+@media (max-width: 500px) and (orientation: landscape) {
+    .copyright {
+        font-size: 11px;
+        padding: 0px 20px;
+    }
+
+}

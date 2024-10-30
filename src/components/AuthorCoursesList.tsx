@@ -5,6 +5,7 @@ import axios from 'axios';
 import Course from './Course';
 import { ICourse } from '../interfaces/course';
 import { baseUrl } from '../config';
+import './AuthorCoursesList.css'
 
 
 const AuthorCoursesList: React.FC = () => {
@@ -26,7 +27,7 @@ const AuthorCoursesList: React.FC = () => {
     }, [authorId]);
 
     return (
-        <div>
+        <div className='author-courses-list'>
             <button
                 className="button is-link"
                 onClick={() => navigate(-1)} // Go back to the previous page

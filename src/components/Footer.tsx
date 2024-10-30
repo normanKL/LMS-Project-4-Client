@@ -1,6 +1,7 @@
 //- ./src/components/Footer.tsx
 
 import React from 'react';
+import './Footer.css'
 
 const Footer: React.FC = () => {
     return (
@@ -17,12 +18,12 @@ const Footer: React.FC = () => {
         >
             <div className="content has-text-centered">
                 <div className="columns is-mobile is-vcentered">
-                    <div className="column" >
-                        <p style={{ fontSize: '16px' }}>© 2024 HugoLearn Portal - All Rights Reserved</p>
+                    <div className='column' >
+                        <p className='copyright'>© 2024 HugoLearn Portal - All Rights Reserved</p>
                     </div>
-                    <div className="column">
+                    <div className='column'>
                         <a href="mailto:cheahhonyuen@gmail.com?subject=HBBC%20Portal%20Inquiry&body=I%20would%20like%20to%20inquire%20about...">
-                            <button className="button is-small is-primary" style={{ marginTop: '5px', marginBottom: '5px' }}>
+                            <button className="button is-small is-primary">
                                 Contact Helpdesk
                             </button>
                         </a>

@@ -1,0 +1,118 @@
+@media (max-width: 2800px) and (orientation: landscape) {
+    .navbar-container {
+        font-size: 25px;
+        margin-left: 300px;
+    }
+
+    .navbar-end {
+        font-size: 25px;
+        margin-right: 200px;
+    }
+
+    .welcome-message,
+    .welcome-time {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 2100px) and (orientation: landscape) {
+    .navbar-container {
+        font-size: 23px;
+        margin-left: 260px;
+    }
+
+    .navbar-end {
+        font-size: 23px;
+    }
+
+    .welcome-message,
+    .welcome-time {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 1800px) and (orientation: landscape) {
+    .navbar-container {
+        font-size: 23px;
+        margin-left: 150px;
+    }
+
+    .navbar-end {
+        font-size: 23px;
+    }
+
+    .welcome-message,
+    .welcome-time {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 1600px) and (orientation: landscape) {
+    .navbar-container {
+        font-size: 20px;
+        margin-left: 150px;
+    }
+
+    .navbar-end {
+        font-size: 20px;
+    }
+
+    .welcome-message,
+    .welcome-time {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1300px) and (orientation: landscape) {
+    .navbar-container {
+        font-size: 20px;
+        margin-left: 90px;
+    }
+
+    .navbar-end {
+        font-size: 20px;
+    }
+
+    .welcome-message,
+    .welcome-time {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1200px) and (orientation: portrait) {
+    header {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) and (orientation: landscape) {
+    .navbar-container {
+        font-size: 15px;
+        margin-left: 50px;
+    }
+
+    .navbar-end {
+        font-size: 15px;
+    }
+
+    .welcome-message,
+    .welcome-time {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 500px) and (orientation: landscape) {
+    .navbar-container {
+        font-size: 15px;
+        margin-left: 20px;
+    }
+
+    .navbar-end {
+        font-size: 15px;
+    }
+
+    .welcome-message,
+    .welcome-time {
+        font-size: 15px;
+    }
+}

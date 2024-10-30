@@ -31,10 +31,10 @@ const Course: React.FC<ICourse> = ({ id, title, image_url, link, author, descrip
             <Link to={`/courses/${id}`} className="card" style={{
                 border: 'none', // No border
                 borderRadius: '10px', // Rounded corners
-                marginBottom: '20px',
+                // marginBottom: '30px',
                 boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', // Subtle shadow
                 transition: 'transform 0.2s',
-                backgroundColor: 'white' // Background color
+                
             }}> 
             {/* Wrap in Link */}
                 <div className="card-image">
@@ -42,7 +42,7 @@ const Course: React.FC<ICourse> = ({ id, title, image_url, link, author, descrip
                         <img src={image_url} alt={title} style={{ objectFit: 'cover' }} />
                     </figure>
                 </div>
-                <div className="card-content" style={{ padding: '10px' }}>
+                <div className="card-content" style={{ padding: '10px', height:'130px', color:'white' }}>
                     <p style={{ fontSize: '18px', fontWeight: 'bold', marginTop: '10px' }}>{title}</p>
                     {/* <p style={{ fontSize: '16px', fontWeight: 'bold' }}>{link}</p> */}
                     {/* <p style={{ fontSize: '16px', fontWeight: 'bold' }}>{description}</p> */}
