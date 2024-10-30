@@ -34,7 +34,7 @@ function Login({ fetchUser }: { fetchUser: Function }) {
   }
 
   return (
-    <div className="login-section">
+    <div className="login-section" style={{ backgroundColor: '#363636' }}>
       <div className="container">
         <form onSubmit={handleSubmit}>
           <div className="field">
