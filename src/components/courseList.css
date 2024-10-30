@@ -1,3 +1,16 @@
+.title-lms {
+    font-size: 70px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 30px;
+    /* border: 2px solid white; */
+}
+
+
+/* .instruction{
+    border: 2px solid white;
+} */
+
 @media (max-width: 2800px) and (orientation: landscape) {
 
     .course-list {

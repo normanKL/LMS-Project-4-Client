@@ -24,8 +24,8 @@ const AuthorList: React.FC = () => {
     return (
         <>
             <div className="author-list">
-                <h1 className="title has-text-centered" style={{ marginTop: '150px' }}>Our Authors</h1>
-                <p style={{ margin: '30px', textAlign: 'center' }}>🏆 Click the auhtor's profile for their courses 🏆</p>
+                <h1 className="title-lms has-text-centered" style={{ marginTop: '150px' }}>Our Authors</h1>
+                <p className="instruction has-text-centered" style={{ marginBottom: '30px'}}>🏆 Click the auhtor's profile for their courses 🏆</p>
                 <div style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '100px' }}>
                     <div className="columns is-multiline box is-centered"
                     style={{display:'flex'}}>
