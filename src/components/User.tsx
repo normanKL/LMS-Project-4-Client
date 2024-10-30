@@ -77,7 +77,7 @@ const User: React.FC = () => {
     if (error) return <p>{error}</p>;
 
     return (
-        <div className="container" style={{ marginBottom: '150px', backgroundColor:'#363636'}}>
+        <div className="container" style={{ marginBottom: '150px'}}>
             <div className="profile-section" style={{ backgroundColor: '#f5f5f5', padding: '30px', marginBottom: '50px', textAlign: 'center', marginTop: '150px'}}>
                 {user && (
                     <div className="box" >

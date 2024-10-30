@@ -103,7 +103,7 @@ function Signup() {
     }
 
     return (
-        <div className="signup-section" style={{ backgroundColor: '#363636' }}>
+        <div className="signup-section" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
             <div className="container" style={{ paddingBottom: '80px' }}>
                 <form onSubmit={handleSubmit}>
                     <h2 style={{ fontSize: '23px', fontWeight: 'bold' }}>Section A: Signup Details</h2>

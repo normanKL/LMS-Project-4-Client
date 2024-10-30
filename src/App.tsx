@@ -21,7 +21,6 @@ import cuteDog from '/assets/dog-glasses.jpg';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [isLightMode, setIsLightMode] = useState(false);
 
   async function fetchUser() {
     try {
@@ -42,13 +41,6 @@ function App() {
       fetchUser()
     }
   }, [])
-
-  useEffect(() => {
-    const lightModeMediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-    setIsLightMode(lightModeMediaQuery.matches);
-    lightModeMediaQuery.addEventListener('change', (e) => setIsLightMode(e.matches));
-    return () => lightModeMediaQuery.removeEventListener('change', (e) => setIsLightMode(e.matches));
-  }, []);
 
   useEffect(() => {
     const handleOrientationChange = () => {
