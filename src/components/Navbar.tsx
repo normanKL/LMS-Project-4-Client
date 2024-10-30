@@ -26,7 +26,7 @@ function Navbar({ user, setUser }: NavbarProps) {
 
     // Inactivity timer function
     useEffect(() => {
-        const INACTIVITY_LIMIT = 10 * 60 * 1000; // 15 minutes in milliseconds
+        const INACTIVITY_LIMIT = 10 * 60 * 1000; 
         let inactivityTimer: ReturnType<typeof setTimeout>;
 
         const resetInactivityTimer = () => {
@@ -36,14 +36,11 @@ function Navbar({ user, setUser }: NavbarProps) {
 
         const activityEvents = ["mousemove", "mousedown", "keypress", "scroll", "touchstart"];
 
-        // Set up event listeners
         activityEvents.forEach(event => window.addEventListener(event, resetInactivityTimer));
 
-        // Set initial timer
         resetInactivityTimer();
 
         return () => {
-            // Cleanup event listeners and timer on component unmount
             activityEvents.forEach(event => window.removeEventListener(event, resetInactivityTimer));
             clearTimeout(inactivityTimer);
         };
