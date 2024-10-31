@@ -84,16 +84,16 @@ function CourseDetail() {
                 <div className="card" style={{ margin: 'auto', width: '50%', marginBottom: '50px', marginTop: '50px', backgroundColor: '#f5f5f5' }}>
                     <div className="card-image">
                         <figure className="image">
-                            <img src={course.image_url} alt={course.title} style={{ objectFit: 'cover', width: '100%', height: '600px' }} />
+                            <img src={course.image_url} alt={course.title} style={{ objectFit: 'cover', width: '100%', height: '400px' }} />
                         </figure>
                     </div>
                     <div className="card-content">
-                        <div className="box" style={{ marginTop: '10px' }}>
-                            <h2 className="title" style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '30px' }}>{course.title}</h2>
-                            <p style={{ marginTop: '15px' }}><strong>Description</strong></p>
-                            <p>{course.description}</p>
-                            <p style={{ marginTop: '25px' }}><strong>Created by:</strong> {isAuthorObject(course.author) ? course.author.name : course.author}</p>
-                            <p><strong>Curator:</strong> {course.owner.username}</p>
+                        <div className="box  has-background-black" style={{ marginTop: '10px' }}>
+                            <h2 className="title has-text-white" style={{ fontSize: '30px', fontWeight: 'bold', marginBottom: '30px' }}>{course.title}</h2>
+                            <p style={{ marginTop: '15px' }}><strong className='has-text-white'>Description</strong></p>
+                            <p className='has-text-grey-lighter'>{course.description}</p>
+                            <p className='has-text-grey-lighter' style={{ marginTop: '25px' }}><strong className='has-text-white'>Created by:</strong> {isAuthorObject(course.author) ? course.author.name : course.author}</p>
+                            <p className='has-text-grey-lighter'><strong className='has-text-white'>Curator:</strong> {course.owner.username}</p>
                             <p className="subtitle" style={{ fontSize: '23px', marginTop: '40px' }}>
                                 <a
                                     href={course.link}
@@ -111,10 +111,10 @@ function CourseDetail() {
 
             {/* Comment Section */}
             <div className="comments-section" style={{ marginTop: '50px', marginBottom: '150px', marginRight:'150px', marginLeft:'150px' }}>
-                <h3 className="title is-4">Comments</h3>
+                <h3 className="title is-4 has-text-white">Comments</h3>
                 <form onSubmit={handleCommentSubmit}>
                     <div className="field">
-                        <label className="label">Add a Comment</label>
+                        <label className="label has-text-white">Add a Comment</label>
                         <div className="control">
                             <textarea
                                 className="textarea"

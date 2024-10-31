@@ -1,3 +1,8 @@
+.a-list {
+    transform: scale(0.95);
+    transform-origin: top;
+}
+
 @media (max-width: 2800px) and (orientation: landscape) {
 
     .author-list {

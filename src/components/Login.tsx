@@ -34,11 +34,11 @@ function Login({ fetchUser }: { fetchUser: Function }) {
   }
 
   return (
-    <div className="login-section" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
-      <div className="container">
+    <div className="login-section">
+      <div className="container" >
         <form onSubmit={handleSubmit}>
           <div className="field">
-            <label htmlFor="email" className="label">
+            <label htmlFor="email" className="label has-text-white">
               Email
             </label>
             <div className="control">
@@ -53,7 +53,7 @@ function Login({ fetchUser }: { fetchUser: Function }) {
           </div>
 
           <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-            <label htmlFor="password" className="label">
+            <label htmlFor="password" className="label has-text-white">
               Password
             </label>
             <div className="control">

@@ -112,7 +112,7 @@ function Navbar({ user, setUser }: NavbarProps) {
                         </div>
                         <div className="navbar-end">
                             {user && (
-                                <button onClick={logout} className="button navbar-item is-ghost">
+                                <button onClick={logout} className="button remove-buttons navbar-item is-ghost has-text-danger-light">
                                     Logout
                                 </button>
                             )}

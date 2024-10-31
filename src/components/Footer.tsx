@@ -21,9 +21,9 @@ const Footer: React.FC = () => {
                     <div className='column' >
                         <p className='copyright'>© 2024 HugoLearn Portal - All Rights Reserved</p>
                     </div>
-                    <div className='column'>
+                    <div className='column' >
                         <a href="mailto:cheahhonyuen@gmail.com?subject=HBBC%20Portal%20Inquiry&body=I%20would%20like%20to%20inquire%20about...">
-                            <button className="button is-small is-primary">
+                            <button className="button is-small is-primary" style={{ fontSize: '15px', margin:'5px' }}>
                                 Contact Helpdesk
                             </button>
                         </a>

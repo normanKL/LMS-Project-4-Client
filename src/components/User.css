@@ -1,3 +1,16 @@
+.learning-journey-title {
+    font-size: 50px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 0px;
+    /* border: 2px solid white; */
+}
+
+.c-list {
+    transform: scale(0.95);
+    transform-origin: top;
+}
+
 @media (max-width: 1200px) and (orientation: landscape) {
 
     .profile-section,

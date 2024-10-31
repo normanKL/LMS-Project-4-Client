@@ -24,7 +24,15 @@
 }
 
 .button:hover {
-    background-color: rgb(208, 164, 248);
+    background-color: rgb(32, 157, 51);
+    color: white;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.974)
+}
+
+.remove-buttons:hover {
+    background-color: rgb(251, 24, 24);
+    color: white;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.974)
 }
 
 @media (max-width: 1700px) and (orientation: landscape){

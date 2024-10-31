@@ -28,9 +28,9 @@ const CoursetList: React.FC = () => {
         <>
             <div className="course-list">
                 <h1 className="title-lms has-text-centered" style={{ marginTop: '150px'}}>Learning Courses</h1>
-                <p className="instruction has-text-centered" style={{ marginBottom: '30px' }}>🌟 Click the courses for more details 🌟</p>
-                <div style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '50px', marginTop: '40px' }}>
-                    <div className="columns is-multiline box">
+                <p className="instruction has-text-centered has-text-white" style={{ marginBottom: '30px' }}>🌟 Click the courses for more details 🌟</p>
+                <div className="mc-list" style={{ backgroundColor: '#f5f5f5', padding: '20px', marginBottom: '50px', marginTop: '40px' }}>
+                    <div className="columns is-multiline box has-background-black">
                         {course.map((courseItem) => (
                             <Course key={courseItem.id} {...courseItem} />
                         ))}

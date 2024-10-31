@@ -80,15 +80,15 @@ const User: React.FC = () => {
         <div className="container" style={{ marginBottom: '150px'}}>
             <div className="profile-section" style={{ backgroundColor: '#f5f5f5', padding: '30px', marginBottom: '50px', textAlign: 'center', marginTop: '150px'}}>
                 {user && (
-                    <div className="box" >
+                    <div className="box has-background-black" >
                         <img
                             src={user.image_url}
                             alt="Profile"
                             style={{ borderRadius: '50%', width: '200px', height: '200px', objectFit: 'cover', marginBottom: '10px' }}
                         />
-                        <h1 className="subtitle" style={{ marginTop: '10px', fontSize: '1.5em', fontWeight: 'bold' }}>{user.username}</h1>
+                        <h1 className="subtitle has-text-grey-lighter" style={{ marginTop: '10px', fontSize: '1.5em', fontWeight: 'bold' }}>{user.username}</h1>
                         {/* <h3 style={{ fontSize: '18px', fontWeight: 'bold' }}>{user.email}</h3> */}
-                        <p style={{ fontSize:'25px' }}>{user.country}</p>
+                        <p className='has-text-grey-lighter' style={{ fontSize:'25px' }}>{user.country}</p>
                         <p style={{ marginTop: '10px', color: 'yellow', fontSize: '23px' }}>"{user.quote}"</p>
                     </div>
                 )}
@@ -97,13 +97,13 @@ const User: React.FC = () => {
 
             {/* Section for Courses Added by User */}
             <div className="courses-section">
-                <h2 className="title has-text-centered" style={{ marginBottom: '50px' }}>My Learning Journey</h2>
+                <h2 className="learning-journey-title has-text-centered" style={{ marginBottom: '50px'}}>My Learning Journey</h2>
                 {courses.length > 0 ? (
-                    <div className="columns is-multiline">
+                    <div className="columns is-multiline c-list">
                         {courses.map(course => (
                             <div key={course.id} className="column is-one-third-desktop is-half-tablet">
-                                <div className="card" style={{height: '580px'}}>
-                                    <div className="card-content">
+                                <div className="card has-background-black" style={{height: '580px'}}>
+                                    <div className="card-content has-background-black box">
                                         <Link to={`/courses/${course.id}`} className="card-content">
                                             <div className="card-image">
                                                 <figure className="image">
@@ -111,14 +111,14 @@ const User: React.FC = () => {
                                                 </figure>
                                             </div>
                                             <br/>
-                                            <p style={{ fontSize: '18px', fontWeight: 'bold' }}>{course.title}</p>
+                                            <p className="has-text-grey-lighter" style={{ fontSize: '18px', fontWeight: 'bold' }}>{course.title}</p>
                                         </Link>
 
                                         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
                                             <button
-                                                className="button is-danger"
+                                                className="button remove-buttons"
                                                 onClick={() => handleRemoveCourse(course.id)}
-                                                style={{ width: '80%' }} // Adjust button width if needed
+                                                style={{ width: '100%' }} // Adjust button width if needed
                                             >
                                                 Remove
                                             </button>

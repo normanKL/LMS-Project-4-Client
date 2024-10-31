@@ -103,15 +103,15 @@ function Signup() {
     }
 
     return (
-        <div className="signup-section" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
-            <div className="container" style={{ paddingBottom: '80px' }}>
+        <div className="signup-section">
+            <div className="container" style={{ paddingBottom: '80px'}}>
                 <form onSubmit={handleSubmit}>
-                    <h2 style={{ fontSize: '23px', fontWeight: 'bold' }}>Section A: Signup Details</h2>
+                    <h2 className="has-text-grey-lighter" style={{ fontSize: '23px', fontWeight: 'bold' }}>Signup Details</h2>
                     <br />
 
                     {/* First Name Field */}
                     <div className="field">
-                        <label htmlFor="first_name" className="label">
+                        <label htmlFor="first_name" className="label has-text-white">
                             First Name
                         </label>
                         <div className="control">
@@ -130,7 +130,7 @@ function Signup() {
 
                     {/* Last Name Field */}
                     <div className="field">
-                        <label htmlFor="last_name" className="label">
+                        <label htmlFor="last_name" className="label has-text-white">
                             Last Name
                         </label>
                         <div className="control">
@@ -149,7 +149,7 @@ function Signup() {
 
                     {/* Username Field */}
                     <div className="field">
-                        <label htmlFor="username" className="label">
+                        <label htmlFor="username" className="label has-text-white">
                             Username
                         </label>
                         <div className="control">
@@ -168,7 +168,7 @@ function Signup() {
 
                     {/* Email Field */}
                     <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <label htmlFor="email" className="label">
+                        <label htmlFor="email" className="label has-text-white">
                             Email
                         </label>
                         <div className="control">
@@ -187,7 +187,7 @@ function Signup() {
 
                     {/* Image URL Field */}
                     <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <label htmlFor="image_url" className="label">
+                        <label htmlFor="image_url" className="label has-text-white">
                             Image URL
                         </label>
                         <div className="control">
@@ -206,7 +206,7 @@ function Signup() {
 
                     {/* Country Field */}
                     <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <label htmlFor="country" className="label">
+                        <label htmlFor="country" className="label has-text-white">
                             Country
                         </label>
                         <div className="control">
@@ -225,7 +225,7 @@ function Signup() {
 
                     {/* Quote Field */}
                     <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <label htmlFor="quote" className="label">
+                        <label htmlFor="quote" className="label has-text-white">
                             Quote
                         </label>
                         <div className="control">
@@ -244,7 +244,7 @@ function Signup() {
 
                     {/* Password Field */}
                     <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <label htmlFor="password" className="label">
+                        <label htmlFor="password" className="label has-text-white">
                             Password
                         </label>
                         <div className="control">
@@ -263,7 +263,7 @@ function Signup() {
 
                     {/* Password Confirmation Field */}
                     <div className="field" style={{ marginTop: '25px', marginBottom: '15px' }}>
-                        <label htmlFor="passwordConfirmation" className="label">
+                        <label htmlFor="passwordConfirmation" className="label has-text-white">
                             Password Confirmation
                         </label>
                         <div className="control">
@@ -287,7 +287,9 @@ function Signup() {
                         <small className="has-text-danger">{errorData.general}</small>
                     )}
 
-                    <button type="submit" className="button is-primary" style={{ marginTop: '25px' }}>
+                    <br/>
+
+                    <button className="submit" type="submit" style={{ fontSize: '23px', fontWeight: 'bold', color: 'gold'}}>
                         Sign Up
                     </button>
                 </form>

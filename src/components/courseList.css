@@ -6,10 +6,10 @@
     /* border: 2px solid white; */
 }
 
-
-/* .instruction{
-    border: 2px solid white;
-} */
+.mc-list {
+    transform: scale(0.95);
+    transform-origin: top;
+}
 
 @media (max-width: 2800px) and (orientation: landscape) {
 

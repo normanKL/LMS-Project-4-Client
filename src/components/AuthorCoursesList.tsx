@@ -36,9 +36,9 @@ const AuthorCoursesList: React.FC = () => {
                 Back To Previous
             </button>
 
-            <h1 className="title has-text-centered" style={{marginTop:'10px', margin:'30px'}}>Courses by Author</h1>
-            <p style={{ margin: '30px', textAlign: 'center' }}>🌟 Click the courses for more details 🌟</p>
-            <div className="columns is-multiline box" style={{ marginTop: '10px', marginBottom: '100px', marginLeft:'30px', marginRight:'30px' }}>
+            <h1 className="title has-text-centered has-text-white" style={{marginTop:'10px', margin:'30px'}}>Courses by Author</h1>
+            <p className="has-text-white" style={{ margin: '30px', textAlign: 'center' }}>🌟 Click the courses for more details 🌟</p>
+            <div className="columns is-multiline box has-background-black ac-list" style={{ marginTop: '10px', marginBottom: '100px', marginLeft:'30px', marginRight:'30px' }}>
                 {courses.length > 0 ? (
                     courses.map((course) => (
                         <Course key={course.id} {...course} />
